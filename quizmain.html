@@ -1,0 +1,244 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <!--<link rel="stylesheet"  href="stylenewtype.css">-->
+ <style>
+
+
+
+
+ h1, #final{
+    color:blue;
+    text-shadow:3px 3px 2px green;
+    font-size:50px;
+    text-align: center;
+    font-style: italic;
+}
+.update{
+  	height:23px;
+  	width:30px;
+  	
+
+}
+
+.button {
+  background-color: LawnGreen;
+  border: 2px solid red;
+  color: blue;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  margin: 24px 4px;
+  cursor: pointer;
+font-size: 16px;
+border-radius: 12px;
+}
+.button:hover{
+     font-size: 18px;
+      margin: 24px 5px;
+    color: navy ;
+    border: 2px solid red;
+    background-color:SpringGreen;
+     box-shadow: 0 6px 6px 0 lime , 0 1px 5px 0 blue;
+}
+#heading{
+    color:red;
+    text-shadow:2px 2px 1px pink;
+    font-size :40px;
+    padding: 5px 20px;
+}
+#question{
+    color:brown;
+    text-shadow:2px 2px gold;
+    font-size :45px;
+    padding: 1px 100px;
+}
+#gif{
+width:15%;
+float:right;
+
+}
+#finalimg{
+  padding: 0px 400px;
+}
+#test{
+    color : dark-Green;
+    text-shadow:1px 1px lime;
+    font-size : 35px;
+    padding: 1px 100px;
+}
+#test:hover{
+
+    text-shadow:1px 1px aqua;
+}
+ </style>
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Experiment 10
+</title>
+</head>
+
+<body >
+<h1 > Experiment 6 : Stefan's Law </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
+
+<hr>
+
+
+<h2 id = "check"> </h2>
+
+<p id = "heading" > </p>
+<p id="final"></p>
+<img  id="finalimg" > </img>
+<p id = "answer"></p><!-- h3-->
+<p id = "question"></p>
+
+<p id = "test" > </p>
+
+
+
+<script>
+var a,b,c,d,test,e,f=0,x=0,y,question,z=0,count=0;
+var questions = [
+    ["Question : On what factors numerical aperture depends?", " Wavelength of light", "Dimensions of core and cladding", "Refractive index of core and cladding", " Length of  core and cladding", "C"],
+
+["Question : What is working principle of optical fibre?", "Total Internal Refelction", "Refraction", "Difrraction", "Reflection", "A"],
+
+
+["Question :  Which optical fibre is suited for short distance?", "Single mode fibre", "Multi mode fibre", "Step Index Single Mode", "Grated index Single mode", "B"],
+["Question  :What is the condition required for total internal reflection? ", "the angle of incidence is greater than the critical angle", "the angle of incidence is equal to critical angle", "the angle of incidence is less than critical angle", "the angle of incidence is greater than 90", "A"],
+
+["Question : What are the main components of optical fibre?", "Reflector and Core", "Glass slab and Reflector", "Core and cladding", "Cladding and Reflector", "C"]
+,["Question : Why optical fibres are considered over metallic wires?", "Less fragilty than copper wire", "Less costly", "Easy to intsall", "Less signal strength loss", "D"]
+,
+
+
+["Question :What is  formula for critical angle ? ", "sin &#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", " sin  &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub>  ", " tan =&#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", "tan &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub> ", " B"],
+["Question : Which optical fibre is used for longer distances?", "Mutli mode fibre", "Single mode fibre", "Grated multi mode fibre", "Steep index multi mode fibre", "B"],
+
+["Question : What is the relationship between the refractive index of core(n1) and cladding(n2)?", "n2>n1", "n1>n2", "n1=n2", "n1>>n2", "A"],
+
+["Question : Which of the following loss does not occur in optical fibre?", "Bending loss", "Attenuation loss", "Heating loss", "Absorption loss", "C"]
+];    
+x = Math.floor((Math.random() * 10) + 1);
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+
+var gifs = ["zero.gif", "one.gif", "two.gif"];
+
+function getquestion()
+{
+
+if(x==questions.length)
+	{
+		x = x -10;
+
+	}
+else
+x=x;
+if(count>=questions.length)
+{
+
+	for(y=0;y<10;y++)
+		{
+			    if(ar[y]==1)
+			    z++;
+		}
+
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length+"<br>";
+document.getElementById("question").innerHTML= question +"<br>";
+
+document.getElementById("test").innerHTML= " ";
+
+/*document.getElementById("q1").innerHTML= " f";*/
+/*
+document.getElementById("test").innerHTML+= " <label class = 'container'> "+"
+<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <span class = 'checkmark'>"+" </span>" + "</label>" ;*/
+
+
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+
+
+/* <input type ="radio" class = "update" name ="choices" value ="A" > "+a+" </input> 
+	/*<input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" </input> 
+	<input type='radio'class = 'update' name ='choices' value='C' > "+c+"</input> 
+	<input type='radio'class = 'update' name ='choices' value='D'  > "+d+"</input> */
+
+
+
+
+
+  if(x!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+  if(x==questions.length - 1) 
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check()'> Submit </button>";
+  else
+    document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check()'> Next </button>";
+    }
+}
+
+function check()
+{
+    d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        e=d[i].value;
+    }
+
+    if(e==questions[x][5])
+    {
+        f++;
+        ar[x]=1;
+    }
+    else
+    ar[x]=0;
+    count ++;
+    x++;
+    getquestion();
+}
+function prev()
+{
+    count--;
+    x--;
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>
