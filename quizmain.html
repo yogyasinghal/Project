@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,31 +16,41 @@
     font-style: italic;
 }
 .update{
-  	height:23px;
-  	width:30px;
-  	
+      height:23px;
+      width:30px;
+      
 
 }
 
 .button {
-  background-color: LawnGreen;
-  border: 2px solid red;
-  color: blue;
-  padding: 15px 32px;
+color:#fff;
+ /* position:absolute;*/
   text-align: center;
-  display: inline-block;
+ /* transform:translate(-50%,-50%);*/
+  width:150px;
+  height:50px;
+left:300px;
   margin: 24px 4px;
   cursor: pointer;
 font-size: 16px;
-border-radius: 12px;
+border-radius: 30px;
+background:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+background-size:400%;
+
 }
 .button:hover{
-     font-size: 18px;
-      margin: 24px 5px;
-    color: navy ;
-    border: 2px solid red;
-    background-color:SpringGreen;
-     box-shadow: 0 6px 6px 0 lime , 0 1px 5px 0 blue;
+     animation : animate 8s linear infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position : 0% ;
+    }
+    100%
+    {
+        background-position : 400% ;
+    }
 }
 #heading{
     color:red;
@@ -82,7 +91,7 @@ Experiment 10
 </head>
 
 <body >
-<h1 > Experiment 6 : Stefan's Law </h1><img src ="yeah.gif" id = "gif"></img>
+<h1 > Experiment 10 : Optical Fiber </h1><img src ="yeah.gif" id = "gif"></img>
 
 <!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
 
@@ -137,20 +146,20 @@ function getquestion()
 {
 
 if(x==questions.length)
-	{
-		x = x -10;
+    {
+        x = x -10;
 
-	}
+    }
 else
 x=x;
 if(count>=questions.length)
 {
 
-	for(y=0;y<10;y++)
-		{
-			    if(ar[y]==1)
-			    z++;
-		}
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
 
 document.getElementById("final").innerHTML="You got " + z + " correct";
 document.getElementById("finalimg").src = gifs[z];
@@ -187,16 +196,17 @@ document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' clas
 
 
 /* <input type ="radio" class = "update" name ="choices" value ="A" > "+a+" </input> 
-	/*<input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" </input> 
-	<input type='radio'class = 'update' name ='choices' value='C' > "+c+"</input> 
-	<input type='radio'class = 'update' name ='choices' value='D'  > "+d+"</input> */
+    /*<input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" </input> 
+    <input type='radio'class = 'update' name ='choices' value='C' > "+c+"</input> 
+    <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"</input> */
 
 
 
 
 
-  if(x!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
-  if(x==questions.length - 1) 
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+  
+  if(count==questions.length - 1) 
      document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check()'> Submit </button>";
   else
     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check()'> Next </button>";
