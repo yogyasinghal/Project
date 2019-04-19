@@ -1,0 +1,58 @@
+.b1{
+box-shadow: 1em 1em 1em 1.3em #333333;
+margin-right: 2em;
+  margin-left: 1.5em;
+  margin-top: 1em;
+  background-image: url(https://cdn.pixabay.com/photo/2014/12/15/15/36/cloth-569222__340.jpg);
+
+
+}
+.he{
+	text-align: center;
+	padding-top: 0.8em;
+	font-size: 2.5em;
+	color: #330066;
+	font-weight: bold;
+	font-style: italic;
+
+}
+.p1{
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.7em;
+}
+.p2{
+	font-size: 1.6em;
+	padding-left: 0.7em;
+	font-style: italic;
+}
+.gh{
+	display: grid;
+	grid-template-columns: 40% 40%;
+	grid-gap: 3em;
+	padding-left: 15em;
+	padding-right: 10em;
+	padding-top: 3em;
+
+}
+.gh div{
+	box-shadow: 2.5px 2.5px 2.5px 2.5px #333333;
+	text-align: center;
+	padding-top: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+
+
+}
+
+#img{
+	width: 100px;
+	border-radius: 20px;
+}
+
+
+.pp{
+	color: black;
+	background-color: #333333;
+}
