@@ -56,17 +56,17 @@ Experiment 10
 var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
 var dots =  document.getElementsByClassName("dot");
 var questions = [
-    ["Question 1 : On what factors numerical aperture depends?", " Wavelength of light", "Dimensions of core and cladding", "Refractive index of core and cladding", " Length of  core and cladding", "C"],
-["Question  2: What is working principle of optical fibre?", "Total Internal Refelction", "Refraction", "Difrraction", "Reflection", "A"],
-["Question  3:  Which optical fibre is suited for short distance?", "Single mode fibre", "Multi mode fibre", "Step Index Single Mode", "Grated index Single mode", "B"],
-["Question  4:What is the condition required for total internal reflection? ", "the angle of incidence is greater than the critical angle", "the angle of incidence is equal to critical angle", "the angle of incidence is less than critical angle", "the angle of incidence is greater than 90", "A"],
-["Question  5: What are the main components of optical fibre?", "Reflector and Core", "Glass slab and Reflector", "Core and cladding", "Cladding and Reflector", "C"]
-,["Question  6: Why optical fibres are considered over metallic wires?", "Less fragilty than copper wire", "Less costly", "Easy to intsall", "Less signal strength loss", "D"]
+    ["Question  : On what factors numerical aperture depends?", " Wavelength of light", "Dimensions of core and cladding", "Refractive index of core and cladding", " Length of  core and cladding", "C"],
+["Question  : What is working principle of optical fibre?", "Total Internal Refelction", "Refraction", "Difrraction", "Reflection", "A"],
+["Question  :  Which optical fibre is suited for short distance?", "Single mode fibre", "Multi mode fibre", "Step Index Single Mode", "Grated index Single mode", "B"],
+["Question  :What is the condition required for total internal reflection? ", "the angle of incidence is greater than the critical angle", "the angle of incidence is equal to critical angle", "the angle of incidence is less than critical angle", "the angle of incidence is greater than 90", "A"],
+["Question  : What are the main components of optical fibre?", "Reflector and Core", "Glass slab and Reflector", "Core and cladding", "Cladding and Reflector", "C"]
+,["Question  : Why optical fibres are considered over metallic wires?", "Less fragilty than copper wire", "Less costly", "Easy to intsall", "Less signal strength loss", "D"]
 ,
-["Question 7 :What is  formula for critical angle ? ", "sin &#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", " sin  &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub>  ", " tan =&#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", "tan &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub> ", " B"],
-["Question  8: Which optical fibre is used for longer distances?", "Mutli mode fibre", "Single mode fibre", "Grated multi mode fibre", "Steep index multi mode fibre", "B"],
-["Question  9: What is the relationship between the refractive index of core(n1) and cladding(n2)?", "n2>n1", "n1>n2", "n1=n2", "n1>>n2", "A"],
-["Question  10: Which of the following loss does not occur in optical fibre?", "Bending loss", "Attenuation loss", "Heating loss", "Absorption loss", "C"]
+["Question  :What is  formula for critical angle ? ", "sin &#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", " sin  &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub>  ", " tan &#952 =  &#956  <sub>1</sub> / &#956 <sub>2</sub>  ", "tan &#952 =  &#956  <sub>2</sub> / &#956 <sub>1</sub> ", " B"],
+["Question  : Which optical fibre is used for longer distances?", "Mutli mode fibre", "Single mode fibre", "Grated multi mode fibre", "Steep index multi mode fibre", "B"],
+["Question  : What is the relationship between the refractive index of core(n1) and cladding(n2)?", "n2>n1", "n1>n2", "n1=n2", "n1>>n2", "A"],
+["Question  : Which of the following loss does not occur in optical fibre?", "Bending loss", "Attenuation loss", "Heating loss", "Absorption loss", "C"]
 ];    
 x = Math.floor((Math.random() * 10) + 1);
 rand = x;
@@ -128,7 +128,7 @@ function dotclick(value)
 {
 temp=0;
 m=value;
-dots[value].style.backgroundColor="blue";
+dots[value].style.backgroundColor="cyan";
     if(rand + value > 9)
     x = value - rand;
     else
