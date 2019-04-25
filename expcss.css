@@ -1,0 +1,106 @@
+body{
+	background-image:url("pic14.jpg");
+	background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+hr.new1 {
+  border-top: 2px solid red;
+}
+ h1, #final{
+    color:blue;
+    text-shadow:3px 3px 2px green;
+    font-size:50px;
+    text-align: center;
+    font-style: italic;
+}
+h2{
+ color:darkGreen;
+    text-shadow:3px 3px 2px lime;
+    font-size:30px;
+    text-align: center;
+    font-style: italic;
+}
+.update{
+      height:23px;
+      width:30px;
+      
+}
+.button {
+color:#fff;
+ /* position:absolute;*/
+  text-align: center;
+ /* transform:translate(-50%,-50%);*/
+  width:150px;
+  height:50px;
+left:300px;
+  margin: 24px 4px;
+  cursor: pointer;
+font-size: 16px;
+border-radius: 30px;
+background:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+background-size:400%;
+animation : animate 8s linear infinite;
+}
+.button:hover{
+    /* animation : animate 8s linear infinite;*/
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position : 0% ;
+    }
+    100%
+    {
+        background-position : 400% ;
+    }
+}
+#heading{
+    color:red;
+    text-shadow:2px 2px 1px pink;
+    font-size :40px;
+    padding: 5px 20px;
+}
+#question{
+    color:brown;
+    text-shadow:2px 2px gold;
+    font-size :45px;
+    padding: 1px 100px;
+}
+#gif{
+width:16%;
+float:right;
+}
+#finalimg{
+  padding: 0px 400px;
+}
+
+
+
+
+.dot{
+    height: 40px;
+cursor:pointer;
+  width: 40px;
+font-size:25px;
+  background-color: crimson ;
+  border-radius: 50%;
+ border-color: lime;
+  display: inline-block;
+}
+
+.dot:hover{
+border-color: green;
+}
+
+
+#test{
+    color : dark-Green;
+    text-shadow:1px 1px lime;
+    font-size : 35px;
+    padding: 1px 100px;
+}
+#test:hover{
+    text-shadow:1px 1px aqua;
+}
