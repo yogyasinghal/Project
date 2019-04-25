@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <link rel="stylesheet"  href="expcss.css">
+
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Experiment 7
+</title>
+</head>
+
+<body>
+ 
+<h1 > Experiment 7 : Polarimeter </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
+
+<hr class = "new1">
+
+
+<h2 id = "check"> </h2>
+
+<p id = "heading" > </p>
+
+
+
+<div style="text-align:center">
+  <h2>Question Status</h2>
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot"onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+
+<p id="final"></p>
+<img  id="finalimg" > </img>
+<p id = "answer"></p>
+<p id = "question"></p>
+
+<p id = "test" > </p>
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+var questions = [
+    ["Question : What is the purpose of polarimeter experiment?","to determine the specific rotation of compound","to determine whether compound is optically active or not","both","none of these","C"],
+
+["Question : Specific rotation of compound is independent of ...","temperatue","concentration","both"," none of these","B"],
+
+["Question : What is the necessary condition for compound to be optically active?","dissmetry in molecule","assymetry in molecule",
+"both","none of these","A"],
+
+["Question : Which of the following is optically active?","glucose","hexane","benzene","methane","A"],
+
+["Question : The angle rotated by an optically active compound is directly proportional to....","concentration","temperature",
+"pressure","volume","A"],
+
+
+
+["Question : Can we find unknown concentrations of sugar solution using polarimeter?","yes","no","can't say","impossible","A"],
+
+
+["Question : Which of the phenomenon can be used to get polarized light?","reflection","refraction","double refraction",
+"all of these","D"],
+
+
+["Question : Which devices are used in polarimeter?","Half Shade","bi-quartz device","both","none of these","C"],
+
+
+
+["Question  : Which kind of light is used in half shade polarimeter?","sodium light","white light","any monochromating light", 
+"all of these","A"],
+["Question : In which device optically active compound is stored","analyser","polarimeter tube","polariser","none of these","B"]
+
+
+
+
+];    
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = ["zero.gif", "one.gif", "two.gif"];
+function getquestion()
+{
+
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length+"<br>";
+document.getElementById("question").innerHTML= question +"<br>";
+document.getElementById("test").innerHTML= " ";
+
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+
+function dotclick(value)
+{
+temp=0;
+m=value;
+dots[value].style.backgroundColor="blue";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    ar[x]=0;
+    count ++;
+    temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+
+
+    count--;
+    x--;
+
+
+  dots[count].style.backgroundColor="red";
+
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html

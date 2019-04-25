@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <link rel="stylesheet"  href="expcss.css">
+
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Experiment 3
+</title>
+</head>
+
+<body>
+ 
+<h1 > Experiment 3 : Stefan's Law </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
+
+<hr class = "new1">
+
+
+<h2 id = "check"> </h2>
+
+<p id = "heading" > </p>
+
+
+
+<div style="text-align:center">
+  <h2>Question Status</h2>
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot"onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+
+<p id="final"></p>
+<img  id="finalimg" > </img>
+<p id = "answer"></p>
+<p id = "question"></p>
+
+<p id = "test" > </p>
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+var questions = [
+   ["Question :What Is Formula For Stefan's Law?","E =  &#963 T <sup>4</sup>","E =  &#963 T <sup>3</sup>"," E = &#949 T <sup>3</sup>","E = &#949 T <sup>4</sup>","A"],
+
+["Question :What Is Unit Of Stefan's Constant?"," W m <sup>2</sup> K <sup> - 4 </sup> "," W m <sup> - 2</sup> K <sup>  4   </sup> ","W m <sup> - 2</sup> K <sup> - 4  </sup>","W m <sup> 2 </sup> K <sup>  4  </sup>","C"],
+
+["Question :What Type Of Bulb Is Uesd In This Experiment?","Cfl","Tungsten Filament Bulb","Halogen","Metal Halide Lamp","B"],
+
+["Question :Graph Is Plotted Between?","X=logp And Y=logt","X=v And Y=i","X=i And Y=v","X=logt And Y=logp","D"],
+
+["Question :What Should Be The Value Of Slope?","1","3","4","2","C"],
+
+["Question :What Is The Value Of Stefan's Constant In SI Unit?","5.670x10<sup>-8</sup>","6.670x10<sup>-8</sup>","7.280x10<sup>-8</sup>","8.280x10<sup>-8</sup>","A"],
+
+["Question :How Is R0 Is Calculated?","Rg/4.9","Rg/3.9","Rg/7.2","Rg/4.2","B"],
+
+["Question :Which Of The Following Option Is Correct ?","P=CT<sup>m</sup>+1","P=CT<sup>m</sup>","P=CT<sup>m</sup>+2","P=CT<sup>m</sup>-1","B"],
+
+["Question :Does The Amount Of Heat Radiated Depend Onthe Wavelength Of Radiation?","Yes","No","Sometimes","None Of The Above","A"]
+
+
+
+];
+
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = ["zero.gif", "one.gif", "two.gif"];
+function getquestion()
+{
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length+"<br>";
+document.getElementById("question").innerHTML= question +"<br>";
+document.getElementById("test").innerHTML= " ";
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+function dotclick(value)
+{
+temp=0;
+m=value;
+dots[value].style.backgroundColor="cyan";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    ar[x]=0;
+    count ++;
+    temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+    count--;
+    x--;
+  dots[m-1].style.backgroundColor="red";
+m--;
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html

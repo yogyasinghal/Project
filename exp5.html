@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <link rel="stylesheet"  href="expcss.css">
+
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Experiment 5
+</title>
+</head>
+
+<body>
+ 
+<h1 > Experiment 5 : Newton's Rings </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
+
+<hr class = "new1">
+
+
+<h2 id = "check"> </h2>
+
+<p id = "heading" > </p>
+
+
+
+<div style="text-align:center">
+  <h2>Question Status</h2>
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot"onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+
+<p id="final"></p>
+<img  id="finalimg" > </img>
+<p id = "answer"></p>
+<p id = "question"></p>
+
+<p id = "test" > </p>
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+
+var questions = [
+    ["Question . what is the purpose of newton's ring experiment?","to determine the wavelength of light",
+"to determine the speed of light","to determine the intensity of light","none of these","A"],
+
+
+["Question . which appratus is not used in newton's ring experiment?","travelling microscope","convex lens",
+"sodium vapour lamp","galvanometer","D"],
+
+
+["Question . what is the shape of fringes obtained in newton's ring experiment.","circular","triangular","cylindrical",
+"none of these","A"],
+
+
+["Question . what is the name of phenomenon behind the formation of newton's ring ?","diffraction","interference",
+"polarisation","none of these","B"],
+
+
+["Question . At which angle glass plate is made to inclined so that rays will fall normally on plano conves lens?","45","30","60","90","A"],
+
+
+
+
+
+["Question . In Newton's ring experiment the center of the ring is","bright","bright and dark both","dark","none of these","C"],
+
+
+["Question .  The central ring is dark because","light is reflected at dense medium","light is reflected at rarer medium",
+"light is transmitting through rarer medium","light is transmitting through denser medium","A"],
+
+["Question . Can we get rings in transmitted light.","yes","no","can't say","who cares","A"],
+
+
+["Question . wavelength of light is inversely proportional to","Diameter of rings","focal length of lens","both","none of these","B"],
+
+
+["Question . what phase change occurs due to reflection at denser medium?","180","90","45","60","A"],
+
+
+["Question . what will happpen if we use white light instead of sodium light?","rings will not obtained","no change","colored rings will obtained","can't say","C"]
+];
+
+
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = ["zero.gif", "one.gif", "two.gif"];
+function getquestion()
+{
+
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length+"<br>";
+document.getElementById("question").innerHTML= question +"<br>";
+document.getElementById("test").innerHTML= " ";
+
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+
+function dotclick(value)
+{
+temp=0;
+m=value;
+dots[value].style.backgroundColor="blue";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    ar[x]=0;
+    count ++;
+    temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+
+
+    count--;
+    x--;
+
+
+  dots[count].style.backgroundColor="red";
+
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html

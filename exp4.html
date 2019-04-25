@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+ <link rel="stylesheet"  href="expcss.css">
+
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+Experiment 4
+</title>
+</head>
+
+<body>
+ 
+<h1 > Experiment 4 : Carey Foster Bridge </h1><img src ="yeah.gif" id = "gif"></img>
+
+<!--<h5 align="right"> MM : 10 &nbsp&nbsp </h5>-->
+
+<hr class = "new1">
+
+
+<h2 id = "check"> </h2>
+
+<p id = "heading" > </p>
+
+
+
+<div style="text-align:center">
+  <h2>Question Status</h2>
+ 
+  
+  <span class="dot" onclick ="dotclick(0)">1</span>
+  <span class="dot" onclick ="dotclick(1)">2</span>
+  <span class="dot" onclick ="dotclick(2)">3</span>
+  <span class="dot"onclick ="dotclick(3)">4</span>
+  <span class="dot" onclick ="dotclick(4)">5</span>
+  <span class="dot" onclick ="dotclick(5)">6</span>
+  <span class="dot" onclick ="dotclick(6)">7</span>
+  <span class="dot" onclick ="dotclick(7)">8</span> 
+  <span class="dot" onclick ="dotclick(8)">9</span>
+  <span class="dot" onclick ="dotclick(9)">10</span>
+  
+</div>
+
+<p id="final"></p>
+<img  id="finalimg" > </img>
+<p id = "answer"></p>
+<p id = "question"></p>
+
+<p id = "test" > </p>
+
+
+
+<script>
+var a,b,c,d,test,num, rand,m=0,temp=1,end=0,value,e,f=0,x=0,y,question,z=0,count=0;
+var dots =  document.getElementsByClassName("dot");
+var questions = [
+   ["Question :What is The Unit Of Specific Resistance?","Ohm-m","Ohm-m-1","Ohm-m2","Ohm-m3","A"],
+
+["Question :This Experiment Is Based On Which Principle?","Wheat Stone Bridge","Ampere Circuital Law","Maximum Power Transfer Theorem","None Of The Above","A"],
+
+["Question :What Is The Specimen Wire Made Up Of?","Magnin","Nicrome","Copper","None Of The Above","B"],
+
+["Question :What Is The Bridge Wire Made Up Of?","Nicrome","Copper","Magnin","Aluminium","C"],
+
+["Question :What Type Of Galvanometer We Used In This Experiment?","Weston Type Galvanometer","Astatic Galvanometer","Stewart And Gee Type Galvanometer","Ballistic Galvanometer","A"],
+
+["Question :Name The Electrolyte In A Leclanche Cell?","Nh<sub>4</sub>Cl","Hcl","NaOh","KOh","A"],
+
+["Question :How Many Gaps Are Present In Carey's Foster And Meter Bridge Respectively?","4 And 2","2 And 4","3 And 1","1 And 3","A"],
+
+["Question :If Temprature Increases,then What Happens To Specific Resistance?","Decreases","Increases","No Change","None Of The Above","B"],
+
+["Question :The Resistance Of A Conductor Is Directly And Inversely Proportional To?","L And A","A And L","1/l And A","1/a And L","A"]
+
+
+];
+
+x = Math.floor((Math.random() * 10) + 1);
+rand = x;
+var ar = [0,0,0,0,0,0,0,0,0,0];
+function _(k)
+{
+    return document.getElementById("k");
+}
+var gifs = ["zero.gif", "one.gif", "two.gif"];
+function getquestion()
+{
+if(x>9)
+    {
+        x = x -10;
+    }
+else
+x=x;
+if(count>=questions.length)
+{
+    for(y=0;y<10;y++)
+        {
+                if(ar[y]==1)
+                z++;
+        }
+document.getElementById("final").innerHTML="You got " + z + " correct";
+document.getElementById("finalimg").src = gifs[z];
+document.getElementById("heading").innerHTML=" ";
+document.getElementById("question").innerHTML=" ";
+document.getElementById("test").innerHTML = "";
+}
+else
+{
+    
+    test = _("test");
+    question=questions[x][0];
+    a = questions[x][1];
+    b = questions[x][2];
+    c = questions[x][3];
+    d = questions[x][4];
+document.getElementById("heading").innerHTML="Question "+(count+1)+" of "+questions.length+"<br>";
+document.getElementById("question").innerHTML= question +"<br>";
+document.getElementById("test").innerHTML= " ";
+document.getElementById("test").innerHTML+="<input type ='radio'  id = 'q1' class = 'update' name ='choices' value ='A' > "+a+ " <br>";
+        document.getElementById("test").innerHTML+= " <input type ='radio'class = 'update' name ='choices' value ='B'  > "+b+" <br> ";
+ 
+     document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='C' > "+c+"<br> ";
+      document.getElementById("test").innerHTML+=" <input type='radio'class = 'update' name ='choices' value='D'  > "+d+"<br> " ;
+  if(count!=0) document.getElementById("test").innerHTML+= " <button class='button' onclick ='prev()'> prev </button>";
+     document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(1)'> Submit </button>";
+   document.getElementById("test").innerHTML+= " <button  class='button' onclick ='check(0)'> Next </button>";
+ 
+    
+    }
+}
+function dotclick(value)
+{
+temp=0;
+m=value;
+dots[value].style.backgroundColor="cyan";
+    if(rand + value > 9)
+    x = value - rand;
+    else
+    x = value + rand ;
+    getquestion();
+    
+    
+}
+function check(end)
+{
+   dots[m].style.backgroundColor="yellow";
+ d=document.getElementsByName("choices");
+    for(var i=0;i<d.length;i++)
+    {
+        if(d[i].checked)
+        {
+        e=d[i].value;
+       dots[m].style.backgroundColor="lime";
+        
+        
+        }
+    }
+    if(e==questions[x][5])
+    {
+        f++;
+        
+        ar[x]=1;
+    }
+    else
+    ar[x]=0;
+    count ++;
+    temp=1;
+    x++;
+    m++;
+    if(end==1)
+    count=10;
+    getquestion();
+}
+function prev()
+{
+    count--;
+    x--;
+  dots[m-1].style.backgroundColor="red";
+m--;
+    getquestion();
+}
+window.addEventListener("load",getquestion,false);
+</script>
+
+
+</body>
+
+
+</html
